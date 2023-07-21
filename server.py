@@ -1182,3 +1182,4 @@ if __name__ == "__main__":
                 create_interface()
     except KeyboardInterrupt as e:
         logger.error('\n'.join(traceback.format_exception(e)))
+        print('\n'.join(traceback.format_exception(e)))
