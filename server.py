@@ -1170,12 +1170,15 @@ if __name__ == "__main__":
     shared.generation_lock = Lock()
 
     # Launch the web UI
-    create_interface()
-    while True:
-        time.sleep(0.5)
-        if shared.need_restart:
-            shared.need_restart = False
+    try:
+        create_interface()
+        while True:
             time.sleep(0.5)
-            shared.gradio['interface'].close()
-            time.sleep(0.5)
-            create_interface()
+            if shared.need_restart:
+                shared.need_restart = False
+                time.sleep(0.5)
+                shared.gradio['interface'].close()
+                time.sleep(0.5)
+                create_interface()
+    except KeyboardInterrupt as e:
+        logger.error('\n'.join(traceback.format_exception(e)))
