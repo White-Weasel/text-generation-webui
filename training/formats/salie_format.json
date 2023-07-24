@@ -1,0 +1,4 @@
+{
+    "input,output": "<s>As Salie, response to the following conversation.\n\n### Conversation:\n%input%\n\n### Response:\n%output%",
+    "input,context,output": "As Salie, response to the following conversation with the given context.\n\n### Context:\n%context%\n\n### Conversation:\n%input%\n\n### Response:\n%output%"
+}
